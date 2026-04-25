@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /Archiv/
+Disallow: /DEPLOY/
+
+Sitemap: https://citir-lahmacun.de/sitemap.xml
