@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Çıtır Lahmacun Darmstadt — Frisch. Schnell. Lahmacun. Rheinstraße 2, täglich 10–22 Uhr.">
+  <meta name="description" content="Çıtır Lahmacun Darmstadt — Frisch. Schnell. Lahmacun. Rheinstraße 2, täglich 11–20 Uhr.">
   <meta name="theme-color" content="#1e1612">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="Çıtır Lahmacun Darmstadt">
-  <meta property="og:description" content="Frisch. Schnell. Lahmacun. Türkische Küche in Darmstadt — Lahmacun, Pide, Gözleme. Täglich 10–22 Uhr, Rheinstraße 2.">
+  <meta property="og:description" content="Frisch. Schnell. Lahmacun. Türkische Küche in Darmstadt — Lahmacun, Pide, Gözleme. Täglich 11–20 Uhr, Rheinstraße 2.">
   <meta property="og:type" content="restaurant">
   <meta property="og:locale" content="de_DE">
   <title>Çıtır Lahmacun Darmstadt — Türkisches Restaurant Rheinstraße 2</title>
@@ -42,14 +42,15 @@
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-        "opens": "10:00",
-        "closes": "22:00"
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "11:00",
+        "closes": "20:00"
       }
     ],
     "sameAs": [
       "https://www.instagram.com/citirlahmacunoffiziell/",
-      "https://www.tiktok.com/@citirlahmacunoffi"
+      "https://www.tiktok.com/@citirlahmacunoffi",
+      "https://maps.app.goo.gl/ffXZZLEK89XtWgje9"
     ],
     "hasMenu": {
       "@type": "Menu",
@@ -59,7 +60,6 @@
           "@type": "MenuSection",
           "name": "Lahmacun",
           "hasMenuItem": [
-            { "@type": "MenuItem", "name": "Çıtır Lahmacun (klein)", "offers": { "@type": "Offer", "price": "2.50", "priceCurrency": "EUR" } },
             { "@type": "MenuItem", "name": "Çıtır Lahmacun", "offers": { "@type": "Offer", "price": "5.90", "priceCurrency": "EUR" } },
             { "@type": "MenuItem", "name": "Çıtır Lahmacun Spezial", "description": "Mit Granatapfelsirup & İsot Chilli", "offers": { "@type": "Offer", "price": "6.50", "priceCurrency": "EUR" } },
             { "@type": "MenuItem", "name": "Çıtır Lahmacun mit Käse", "offers": { "@type": "Offer", "price": "6.50", "priceCurrency": "EUR" } },
@@ -565,6 +565,24 @@
       color: var(--text-2);
     }
 
+    .footer__links {
+      display: flex;
+      justify-content: center;
+      gap: var(--sp-3);
+      margin-top: var(--sp-3);
+    }
+
+    .footer__link-btn {
+      font-size: 0.72rem;
+      color: var(--text-2);
+      border: 1px solid var(--divider);
+      border-radius: 999px;
+      padding: 4px var(--sp-4);
+      transition: color 130ms, border-color 130ms;
+    }
+
+    .footer__link-btn:hover { color: var(--text-1); border-color: var(--text-2); }
+
     /* ─── ANIMATIONS ─────────────────────────────────────── */
     @keyframes rise {
       to { opacity: 1; transform: none; }
@@ -642,11 +660,6 @@
       <span class="sec-img__label">Lahmacun</span>
     </div>
     <div class="menu-list">
-      <div class="mi">
-        <span class="mi__n">1</span>
-        <span class="mi__name">Çıtır Lahmacun <small style="font-size:.8em;font-weight:400;color:var(--text-2)">(klein)</small><span class="mi__allergen">a,c,g</span></span>
-        <span class="mi__price">2,50&nbsp;€</span>
-      </div>
       <div class="mi">
         <span class="mi__n">2</span>
         <span class="mi__name">Çıtır Lahmacun<span class="mi__allergen">a,c,g</span></span>
@@ -867,7 +880,7 @@
         <p class="ib__label">Adresse</p>
         <p class="ib__val">
           <a
-            href="https://maps.google.com/?q=Rheinstra%C3%9Fe+2,+64283+Darmstadt"
+            href="https://maps.app.goo.gl/ffXZZLEK89XtWgje9"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -881,8 +894,8 @@
       <div>
         <p class="ib__label">Öffnungszeiten</p>
         <p class="ib__val">
-          Täglich<br>
-          10:00 – 22:00 Uhr
+          Mo – Sa<br>
+          11:00 – 20:00 Uhr
         </p>
       </div>
 
@@ -937,7 +950,7 @@
         TikTok
       </a>
       <a
-        href="https://maps.google.com/?q=Rheinstra%C3%9Fe+2,+64283+Darmstadt"
+        href="https://maps.app.goo.gl/ffXZZLEK89XtWgje9"
         target="_blank"
         rel="noopener noreferrer"
         class="soc"
@@ -1001,7 +1014,11 @@
 </section>
 
 <footer>
-  <p>© 2025 Çıtır Lahmacun &nbsp;·&nbsp; Rheinstraße 2 &nbsp;·&nbsp; 64283 Darmstadt</p>
+  <p>© 2026 Çıtır Lahmacun &nbsp;·&nbsp; Rheinstraße 2 &nbsp;·&nbsp; 64283 Darmstadt</p>
+  <div class="footer__links">
+    <a href="/impressum.html" class="footer__link-btn">Impressum</a>
+    <a href="/datenschutz.html" class="footer__link-btn">Datenschutz</a>
+  </div>
 </footer>
 
 <script>
