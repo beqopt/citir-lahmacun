@@ -391,6 +391,11 @@
       background: #fff;
       border-bottom: 1px solid var(--divider);
     }
+    .vorb__wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+    }
     .vorb__inner {
       max-width: 720px;
       margin: 0 auto;
@@ -400,7 +405,7 @@
       font-family: var(--font-d);
       font-size: clamp(1.4rem, 5vw, 2rem);
       letter-spacing: 0.03em;
-      color: var(--text-1);
+      color: oklch(18% 0.010 28);
       margin-bottom: var(--sp-4);
     }
     .vorb__lead {
@@ -987,20 +992,21 @@
 <!-- ═══ VORBESTELLUNG ════════════════════════════════════════ -->
 <section class="vorb" id="vorbestellung">
 
-  <!-- Platzhalterbild — bitte durch echtes Foto ersetzen -->
-  <div class="sec-img">
-    <img
-      src="Display%20Slides/Alle/Citir_Lahmacun_Links/Citir_Lahmacun_Vorbestellung.png"
-      alt="Vorbestellung für Feiern"
-      loading="lazy"
-    >
-    <div class="sec-img__fade" aria-hidden="true"></div>
-    <span class="sec-img__label">Vorbestellung</span>
+  <div class="vorb__wrap">
+    <div class="sec-img">
+      <img
+        src="Display%20Slides/Alle/Citir_Lahmacun_Links/Citir_Lahmacun_Vorbestellung.png"
+        alt="Vorbestellung für Feiern"
+        loading="lazy"
+      >
+      <div class="sec-img__fade" aria-hidden="true"></div>
+      <span class="sec-img__label">Vorbestellung</span>
+    </div>
   </div>
 
   <div class="vorb__inner">
     <p class="info__kicker">Vorbestellung</p>
-    <h2 class="vorb__title">Kleinere Feiern & Gruppen</h2>
+    <p class="vorb__title">Kleinere Feiern &amp; Gruppen</p>
     <p class="vorb__lead">Für Vorbestellungen bei kleineren Feiern und Gruppenveranstaltungen erreicht ihr uns telefonisch oder per WhatsApp.</p>
 
     <div class="vorb__cards">
