@@ -1186,30 +1186,25 @@
   }, { threshold: 0, rootMargin: '-1px 0px 0px 0px' }).observe(hero);
 
   // ── Aktiver Nav-Link per Scroll
-  const navLinks = document.querySelectorAll('.cat-nav__list a');
+  const navLinks = document.querySelectorAll('.cat-nav__list a:not(.cat-nav__order)');
+  const sections = document.querySelectorAll('#lahmacun, #pide, #gozleme, #cigkofte, #softdrinks, #coffee, #vorbestellung, #info');
 
-  new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      navLinks.forEach(a => {
-        const active = a.getAttribute('href') === `#${entry.target.id}`;
-        a.classList.toggle('active', active);
-        if (active) a.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      });
-    });
-  }, { threshold: 0.25 }).observe(document.getElementById('top'));
-
-  document.querySelectorAll('.menu-sec, .info').forEach(sec => {
-    new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) {
-        navLinks.forEach(a => {
-          const active = a.getAttribute('href') === `#${e.target.id}`;
-          a.classList.toggle('active', active);
-          if (active) a.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        });
+  function updateActiveLink() {
+    const offset = 60;
+    let current = '';
+    sections.forEach(sec => {
+      if (sec.getBoundingClientRect().top <= offset) {
+        current = sec.id;
       }
-    }, { threshold: 0.25 }).observe(sec);
-  });
+    });
+    navLinks.forEach(a => {
+      const isActive = a.getAttribute('href') === `#${current}`;
+      a.classList.toggle('active', isActive);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink();
 
   // ── Menu-Items: gestaffelt einblenden
   const items = document.querySelectorAll('.mi');
