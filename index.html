@@ -277,12 +277,15 @@
       gap: var(--sp-1);
       overflow-x: auto;
       scrollbar-width: none;
-      padding: var(--sp-2) 0;
+      padding: var(--sp-2) var(--sp-4);
       list-style: none;
       -webkit-overflow-scrolling: touch;
-      justify-content: center;
+      justify-content: flex-start;
     }
     .cat-nav__list::-webkit-scrollbar { display: none; }
+    @media (min-width: 780px) {
+      .cat-nav__list { justify-content: center; padding: var(--sp-2) 0; }
+    }
 
     .cat-nav__list a {
       display: block;
@@ -1185,26 +1188,31 @@
     nav.classList.toggle('visible', !e.isIntersecting);
   }, { threshold: 0, rootMargin: '-1px 0px 0px 0px' }).observe(hero);
 
-  // ── Aktiver Nav-Link per Scroll
+  // ── Aktiver Nav-Link
   const navLinks = document.querySelectorAll('.cat-nav__list a:not(.cat-nav__order)');
   const sections = document.querySelectorAll('#lahmacun, #pide, #gozleme, #cigkofte, #softdrinks, #coffee, #vorbestellung, #info');
 
-  function updateActiveLink() {
-    const offset = 60;
-    let current = '';
-    sections.forEach(sec => {
-      if (sec.getBoundingClientRect().top <= offset) {
-        current = sec.id;
-      }
-    });
-    navLinks.forEach(a => {
-      const isActive = a.getAttribute('href') === `#${current}`;
-      a.classList.toggle('active', isActive);
-    });
+  function setActive(id) {
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
   }
 
+  function updateActiveLink() {
+    let current = '';
+    sections.forEach(sec => {
+      if (sec.getBoundingClientRect().top <= 80) current = sec.id;
+    });
+    if (current) setActive(current);
+  }
+
+  // Bei Click sofort aktiv setzen
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const id = link.getAttribute('href').slice(1);
+      setActive(id);
+    });
+  });
+
   window.addEventListener('scroll', updateActiveLink, { passive: true });
-  updateActiveLink();
 
   // ── Menu-Items: gestaffelt einblenden
   const items = document.querySelectorAll('.mi');
