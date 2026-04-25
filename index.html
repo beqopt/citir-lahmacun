@@ -318,7 +318,7 @@
     .sec-img__fade {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 30%, oklch(17% 0.015 28 / 0.85) 100%);
+      background: linear-gradient(180deg, transparent 50%, oklch(0% 0 0 / 0.55) 100%);
     }
 
     .sec-img__label {
@@ -335,13 +335,17 @@
     }
 
     /* ─── MENU ───────────────────────────────────────────── */
-    .menu-wrap { padding-bottom: var(--sp-24); }
+    .menu-wrap {
+      padding-bottom: var(--sp-24);
+      background: #fff;
+      color: oklch(18% 0.010 28);
+    }
 
     /* Allergen-Indizes */
     .mi__allergen {
       font-size: 0.62em;
       vertical-align: super;
-      color: var(--text-2);
+      color: oklch(50% 0.008 28);
       margin-left: 3px;
       font-weight: 400;
       letter-spacing: 0;
@@ -415,7 +419,7 @@
       column-gap: var(--sp-4);
       align-items: baseline;
       padding: var(--sp-4) 0;
-      border-bottom: 1px solid var(--divider);
+      border-bottom: 1px solid oklch(88% 0.005 28);
       opacity: 0;
       transform: translateY(6px);
       transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out);
@@ -437,7 +441,7 @@
     .mi__name {
       font-size: 0.97rem;
       font-weight: 500;
-      color: var(--text-1);
+      color: oklch(18% 0.010 28);
       line-height: 1.4;
     }
 
@@ -445,7 +449,7 @@
       display: block;
       font-size: 0.78rem;
       font-weight: 400;
-      color: var(--text-2);
+      color: oklch(50% 0.008 28);
       margin-top: 1px;
       font-style: italic;
     }
@@ -454,7 +458,7 @@
       font-family: var(--font-d);
       font-size: 0.97rem;
       letter-spacing: 0.03em;
-      color: var(--text-1);
+      color: oklch(18% 0.010 28);
       font-variant-numeric: tabular-nums;
       white-space: nowrap;
       padding-top: 2px;
