@@ -1196,21 +1196,28 @@
     navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
   }
 
+  // Scroll-Detection nach Click kurz sperren bis Animation fertig
+  let clickLock = false;
+  let lockTimer;
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const id = link.getAttribute('href').slice(1);
+      setActive(id);
+      clickLock = true;
+      clearTimeout(lockTimer);
+      lockTimer = setTimeout(() => { clickLock = false; }, 900);
+    });
+  });
+
   function updateActiveLink() {
+    if (clickLock) return;
     let current = '';
     sections.forEach(sec => {
       if (sec.getBoundingClientRect().top <= 80) current = sec.id;
     });
     if (current) setActive(current);
   }
-
-  // Bei Click sofort aktiv setzen
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      const id = link.getAttribute('href').slice(1);
-      setActive(id);
-    });
-  });
 
   window.addEventListener('scroll', updateActiveLink, { passive: true });
 
