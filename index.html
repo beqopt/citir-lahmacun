@@ -292,7 +292,7 @@
       padding: var(--sp-1) var(--sp-4);
       border-radius: 999px;
       white-space: nowrap;
-      color: var(--text-2);
+      color: rgba(255,255,255,0.75);
       transition: color 130ms, background 130ms;
     }
 
@@ -301,6 +301,28 @@
       color: #fff;
       background: var(--accent);
     }
+
+    .cat-nav__order {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-d);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      padding: var(--sp-1) var(--sp-4);
+      border-radius: 999px;
+      white-space: nowrap;
+      color: #fff;
+      background: var(--accent);
+      text-decoration: none;
+      transition: background 130ms, transform 130ms;
+      flex-shrink: 0;
+    }
+    .cat-nav__order:hover {
+      background: oklch(55% 0.22 27);
+      transform: scale(1.03);
+    }
+    .cat-nav__order svg { flex-shrink: 0; }
 
     /* ─── SECTION HERO ───────────────────────────────────── */
     .sec-img {
@@ -362,6 +384,88 @@
       font-weight: 400;
       letter-spacing: 0;
       white-space: nowrap;
+    }
+
+    /* ─── VORBESTELLUNG ─────────────────────────────────── */
+    .vorb {
+      background: #fff;
+      border-bottom: 1px solid var(--divider);
+    }
+    .vorb__inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: var(--sp-8) var(--sp-6) var(--sp-16);
+    }
+    .vorb__title {
+      font-family: var(--font-d);
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      letter-spacing: 0.03em;
+      color: var(--text-1);
+      margin-bottom: var(--sp-4);
+    }
+    .vorb__lead {
+      color: var(--text-2);
+      font-size: 0.95rem;
+      max-width: 52ch;
+      margin-bottom: var(--sp-8);
+    }
+    .vorb__cards {
+      display: grid;
+      gap: var(--sp-6);
+    }
+    @media (min-width: 500px) {
+      .vorb__cards { grid-template-columns: auto 1fr; align-items: start; }
+    }
+    .vorb__card {
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: 12px;
+      padding: var(--sp-6) var(--sp-8);
+    }
+    .vorb__card-label {
+      font-family: var(--font-d);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      margin-bottom: var(--sp-3);
+    }
+    .vorb__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-d);
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 130ms;
+      white-space: nowrap;
+    }
+    .vorb__cta:hover { color: oklch(60% 0.22 27); }
+    .vorb__note-text {
+      font-size: 0.88rem;
+      color: var(--text-2);
+      margin-bottom: var(--sp-3);
+    }
+    .vorb__event-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .vorb__event-list li {
+      font-size: 0.88rem;
+      color: var(--text-1);
+      font-weight: 600;
+      padding-left: 16px;
+      position: relative;
+    }
+    .vorb__event-list li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
     }
 
     /* ─── ALLERGEN-LEGENDE ───────────────────────────────── */
@@ -642,6 +746,12 @@
     <li><a href="#softdrinks">Softdrinks</a></li>
     <li><a href="#coffee">Coffee</a></li>
     <li><a href="#info">Info</a></li>
+    <li>
+      <a href="#vorbestellung" class="cat-nav__order" aria-label="Vorbestellung">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.64 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6 6l.38-.38a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z"/></svg>
+        Vorbestellung
+      </a>
+    </li>
   </ul>
 </nav>
 
@@ -874,6 +984,49 @@
 
 </main>
 
+<!-- ═══ VORBESTELLUNG ════════════════════════════════════════ -->
+<section class="vorb" id="vorbestellung">
+
+  <!-- Platzhalterbild — bitte durch echtes Foto ersetzen -->
+  <div class="sec-img">
+    <img
+      src="Display%20Slides/Alle/Citir_Lahmacun_Links/Citir_Lahmacun_Vorbestellung.png"
+      alt="Vorbestellung für Feiern"
+      loading="lazy"
+    >
+    <div class="sec-img__fade" aria-hidden="true"></div>
+    <span class="sec-img__label">Vorbestellung</span>
+  </div>
+
+  <div class="vorb__inner">
+    <p class="info__kicker">Vorbestellung</p>
+    <h2 class="vorb__title">Kleinere Feiern & Gruppen</h2>
+    <p class="vorb__lead">Für Vorbestellungen bei kleineren Feiern und Gruppenveranstaltungen erreicht ihr uns telefonisch oder per WhatsApp.</p>
+
+    <div class="vorb__cards">
+
+      <div class="vorb__card">
+        <p class="vorb__card-label">Telefon / WhatsApp</p>
+        <a href="tel:+491702700271" class="vorb__cta">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.64 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6 6l.38-.38a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z"/></svg>
+          0170 2700271
+        </a>
+      </div>
+
+      <div class="vorb__card vorb__card--note">
+        <p class="vorb__card-label">Hinweis</p>
+        <p class="vorb__note-text">An besonderen Veranstaltungstagen ist keine Vorbestellung möglich:</p>
+        <ul class="vorb__event-list">
+          <li>Heinerfest</li>
+          <li>Verkaufsoffener Sonntag</li>
+          <li>Schlossgrabenfest</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ═══ INFO ═════════════════════════════════════════════════ -->
 <section class="info" id="info">
   <div class="info__inner">
@@ -917,10 +1070,10 @@
       </div>
 
       <div>
-        <p class="ib__label">Bestellung</p>
-        <p class="ib__val" style="color:var(--text-2);font-size:.9rem">
-          Nur vor Ort<br>
-          &amp; Abholung
+        <p class="ib__label">Vorbestellung</p>
+        <p class="ib__val" style="font-size:.9rem">
+          <a href="#vorbestellung" style="color:var(--accent)">Für Gruppen &amp; Feiern</a><br>
+          <span style="color:var(--text-2);font-size:.85em">Tel. / WhatsApp</span>
         </p>
       </div>
 
